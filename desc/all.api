@@ -1,0 +1,7 @@
+import "base.api"
+import "./product/spu.api"
+import "./product/brand.api"
+import "./product/category.api"
+import "./product/comment.api"
+import "./product/property.api"
+import "./product/property_value.api"

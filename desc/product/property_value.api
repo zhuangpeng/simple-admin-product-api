@@ -1,0 +1,94 @@
+import "../base.api"
+
+type (
+	// The response data of property value information | PropertyValue信息
+	PropertyValueInfo {
+		BaseIDInfo
+
+		// Status 状态
+		Status *uint32 `json:"status,optional"`
+
+		// PropertyId 属性项的编号
+		PropertyId *uint64 `json:"propertyId,optional"`
+
+		// Name 名称
+		Name *string `json:"name,optional"`
+
+		// Remark 备注
+		Remark *string `json:"remark,optional"`
+	}
+	PropertyValueBase {
+		// PropertyId 属性项的编号
+		PropertyId uint64 `json:"propertyId"`
+
+		// Name 名称
+		Name string `json:"name"`
+
+		// Remark 备注
+		Remark *string `json:"remark,optional"`
+	}
+	PropertyValueDetailResp {
+		// PropertyId 属性的编号
+		PropertyId uint64 `json:"propertyId"`
+
+		// Name 属性的名称
+		PropertyName string `json:"propertyName"`
+
+		// Remark 属性值的编号
+		ValueId uint64 `json:"valueId"`
+
+		// Name 属性值的名称
+		ValueName string `json:"valueName"`
+	}
+	PropertyValuePageReq {
+		PageInfo
+		// PropertyId 属性的编号
+		PropertyId *uint64 `json:"propertyId,optional"`
+
+		// Name 名称
+		Name *string `json:"name,optional"`
+
+		// Status 状态
+		Status *uint32 `json:"status,optional"`
+	}
+	PropertyValueResp {
+		PropertyValueBase
+		IDReq
+		// 创建时间
+		CreateTime []*uint64 `json:"createTime"`
+	}
+	PropertyValueListResp {
+		BaseListInfo
+		Data []PropertyValueInfo `json:"data"`
+	}
+	PropertyValueUpdateReq {
+		PropertyValueBase
+		IDReq
+	}
+)
+
+@server(
+	group: propertyvalue
+)
+
+service Product {
+	// Create property value information | 创建PropertyValue
+	@handler createPropertyValue
+	post /property/value/create (PropertyValueBase) returns (BaseMsgResp)
+
+	// Update property value information | 更新PropertyValue
+	@handler updatePropertyValue
+	post /property/value/update (PropertyValueUpdateReq) returns (BaseMsgResp)
+
+	// Delete property value information | 删除PropertyValue信息
+	@handler deletePropertyValue
+	post /property/value/delete (IDReq) returns (BaseMsgResp)
+
+	// Get property value list | 获取PropertyValue列表
+	@handler getPropertyValuePage
+	post /property/value/page (PropertyValuePageReq) returns (PropertyValueListResp)
+
+	// Get property value by ID | 通过ID获取PropertyValue
+	@handler getPropertyValueById
+	post /property/value (IDReq) returns (PropertyValueInfo)
+}

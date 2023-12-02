@@ -1,0 +1,331 @@
+import "../base.api"
+
+type (
+	// The response data of spu information | Spu信息
+	SpuInfo {
+		BaseIDInfo
+
+		// Status
+		Status *uint32 `json:"status,optional"`
+
+		// Sort
+		Sort *uint32 `json:"sort,optional"`
+
+		// Name
+		Name *string `json:"name,optional"`
+
+		// Keyword
+		Keyword *string `json:"keyword,optional"`
+
+		// Introduction
+		Introduction *string `json:"introduction,optional"`
+
+		// Description
+		Description *string `json:"description,optional"`
+
+		// BarCode
+		BarCode *string `json:"barCode,optional"`
+
+		// CategoryId
+		CategoryId *uint64 `json:"categoryId,optional"`
+
+		// BrandId
+		BrandId *uint64 `json:"brandId,optional"`
+
+		// PicUrl
+		PicUrl *string `json:"picUrl,optional"`
+
+		// SliderPicUrls
+		SliderPicUrls *string `json:"sliderPicUrls,optional"`
+
+		// VideoUrl
+		VideoUrl *string `json:"videoUrl,optional"`
+
+		// Unit
+		Unit *uint32 `json:"unit,optional"`
+
+		// SpecType
+		SpecType *bool `json:"specType,optional"`
+
+		// Price
+		Price *int32 `json:"price,optional"`
+
+		// MarketPrice
+		MarketPrice *int32 `json:"marketPrice,optional"`
+
+		// CostPrice
+		CostPrice *int32 `json:"costPrice,optional"`
+
+		// Stock
+		Stock *int32 `json:"stock,optional"`
+
+		// SalesCount
+		SalesCount *int32 `json:"salesCount,optional"`
+
+		// VirtualSalesCount
+		VirtualSalesCount *int32 `json:"virtualSalesCount,optional"`
+
+		// BrowseCount
+		BrowseCount *int32 `json:"browseCount,optional"`
+	}
+
+	SkuInfo {
+
+		// Price
+		Price *int32 `json:"price,optional"`
+
+		// MarketPrice
+		MarketPrice *int32 `json:"marketPrice,optional"`
+
+		// CostPrice
+		CostPrice *int32 `json:"costPrice,optional"`
+
+		// BarCode
+		BarCode *string `json:"barCode,optional"`
+
+		// PicUrl
+		PicUrl *string `json:"picUrl,optional"`
+
+		// Stock
+		Stock *int32 `json:"stock,optional"`
+
+		// Weight
+		Weight *float64 `json:"weight,optional"`
+
+		// Volume
+		Volume *float64 `json:"volume,optional"`
+
+		// Properties
+		Properties []*SkuProperty `json:"properties,optional"`
+	}
+
+	SpuBase {
+		// Name 商品名称
+		Name string `json:"name"`
+
+		// Keyword 关键字
+		Keyword string `json:"keyword"`
+
+		// Introduction 商品简介
+		Introduction string `json:"introduction"`
+
+		// Description 商品详情
+		Description string `json:"description"`
+
+		// CategoryId 商品分类编号
+		CategoryId uint64 `json:"categoryId"`
+
+		// BrandId 商品品牌编号
+		BrandId uint64 `json:"brandId"`
+
+		// PicUrl 商品封面图
+		PicUrl string `json:"picUrl"`
+
+		// SliderPicUrls 商品轮播图
+		SliderPicUrls []string `json:"sliderPicUrls,optional"`
+
+		// VideoUrl 商品视频
+		VideoUrl *string `json:"videoUrl,optional"`
+
+		// Unit 单位
+		Unit uint32 `json:"unit"`
+
+		// Sort 排序字段
+		Sort uint32 `json:"sort"`
+
+		// SpecType 规格类型
+		SpecType bool `json:"specType"`
+
+		// VirtualSalesCount 虚拟销量
+		VirtualSalesCount *int32 `json:"virtualSalesCount,optional"`
+	}
+	SkuBase {
+
+		// Price 销售价格，单位：分
+		Price int32 `json:"price"`
+
+		// MarketPrice 市场价
+		MarketPrice *int32 `json:"marketPrice,optional"`
+
+		// CostPrice 成本价
+		CostPrice *int32 `json:"costPrice,optional"`
+
+		// BarCode 条形码
+		BarCode *string `json:"barCode,optional"`
+
+		// PicUrl 图片地址
+		PicUrl string `json:"picUrl"`
+
+		// Stock 库存
+		Stock int32 `json:"stock"`
+
+		// Weight 商品重量,单位：kg 千克
+		Weight *float64 `json:"weight,optional"`
+
+		// Volume 商品体积,单位：m^3 平米
+		Volume *float64 `json:"volume,optional"`
+
+		// Properties 属性数组
+		Properties []SkuProperty `json:"properties,optional"`
+	}
+
+	SpuCreateReq {
+		SpuBase
+		// skus
+		Skus []SkuBase `json:"skus"`
+	}
+	SpuDetailResp {
+		IDReq
+		SpuInfo
+//		// SalesCount
+//		SalesCount int32 `json:"salesCount"`
+//		// BrowseCount
+//		BrowseCount int32 `json:"browseCount"`
+//		// Status
+//		Status *uint32 `json:"status,optional"`
+		// skus
+		Skus []SkuInfo `json:"skus"`
+	}
+	SpuPageReq {
+		PageInfo
+		// Name 商品名称
+		Name *string `json:"name,optional"`
+		// TabType 前端请求的tab类型
+		TabType *int32 `json:"tabType,optional"`
+		// CategoryId 商品分类编号
+		CategoryId *uint64 `json:"categoryId,optional"`
+		// CreateTime 创建时间
+		CreateTime []*uint64 `json:"createTime,optional"`
+	}
+	SpuResp {
+		SpuInfo
+		IDReq
+		// Price 商品价格
+		Price *int32 `json:"price,optional"`
+
+		// MarketPrice 市场价，单位使用：分
+		MarketPrice *int32 `json:"marketPrice,optional"`
+
+		// CostPrice 成本价，单位使用：分
+		CostPrice *int32 `json:"costPrice,optional"`
+
+		// Stock 商品库存
+		Stock *int32 `json:"stock,optional"`
+
+		// CreateTime 商品创建时间
+		CreateTime *uint64 `json:"createTime,optional"`
+
+		// Status 商品状态
+		Status *uint32 `json:"status,optional"`
+	}
+	SpuSimpleResp {
+		IDReq
+		// Name 商品名称
+		Name *string `json:"name,optional"`
+		// Price 商品价格，单位使用：分
+		Price *int32 `json:"price,optional"`
+
+		// MarketPrice 商品市场价，单位使用：分
+		MarketPrice *int32 `json:"marketPrice,optional"`
+
+		// CostPrice 商品成本价，单位使用：分
+		CostPrice *int32 `json:"costPrice,optional"`
+
+		// Stock 商品库存
+		Stock *int32 `json:"stock,optional"`
+
+		// SalesCount 商品销量
+		SalesCount *int32 `json:"salesCount,optional"`
+
+		// VirtualSalesCount 商品虚拟销量
+		VirtualSalesCount *int32 `json:"virtualSalesCount,optional"`
+
+		// BrowseCount 商品浏览量
+		BrowseCount *int32 `json:"browseCount,optional"`
+	}
+	SpuSimpleListResp {
+		BaseListInfo
+		Data []SpuSimpleResp `json:"data"`
+	}
+	SpuListResp {
+		BaseListInfo
+		Data []SpuDetailResp `json:"data"`
+	}
+	SpuCountResp {
+		Data map[int32]uint64 `json:"data"`
+	}
+	SpuPageResp {
+		BaseListInfo
+		Data []SpuResp `json:"data"`
+	}
+	SpuUpdateReq {
+		IDReq
+		SpuBase
+		// SalesCount 商品销量
+		SalesCount *int32 `json:"salesCount,optional"`
+		// BrowseCount 浏览量
+		BrowseCount *int32 `json:"browseCount,optional"`
+		// Status 商品状态
+		Status *uint32 `json:"status,optional"`
+		// skus SKU 数组
+		Skus []SkuBase `json:"skus"`
+	}
+	SpuUpdateStatusReq {
+		IDReq
+		// Status
+		Status uint32 `json:"status"`
+	}
+
+	SkuProperty {
+		// PropertyId
+		PropertyId uint64 `json:"propertyId"`
+		// PropertyName
+		PropertyName string `json:"propertyName"`
+		// ValueId
+		ValueId uint64 `json:"valueId"`
+		// ValueName
+		ValueName string `json:"valueName"`
+	}
+)
+
+@server(
+	group: spu
+)
+
+service Product {
+	// Create spu information | 创建Spu
+	@handler createSpu
+	post /spu/create (SpuCreateReq) returns (BaseMsgResp)
+
+	// Update spu information | 更新Spu
+	@handler updateSpu
+	put /spu/update (SpuUpdateReq) returns (BaseMsgResp)
+
+	// Update spu information | 更新Spu
+	@handler updateStatus
+	put /spu/update-status (SpuUpdateStatusReq) returns (BaseMsgResp)
+
+	// Delete spu information | 删除Spu信息
+	@handler deleteSpu
+	delete /spu/delete (IDReq) returns (BaseMsgResp)
+
+	// Get spu by ID | 通过ID获取Spu
+	@handler getSpuDetail
+	post /spu/detail (IDReq) returns (SpuDetailResp)
+
+	// Get spu list | 获取Spu列表
+	@handler getSpuSimpleList
+	post /spu/simple-list returns (SpuSimpleListResp)
+
+	// Get spu list | 获取Spu列表
+	@handler getSpuList
+	post /spu/list (IDsReq) returns (SpuListResp)
+
+	// Get spu list | 获取Spu列表
+	@handler getSpuPage
+	post /spu/page (SpuPageReq) returns (SpuPageResp)
+
+	// Get spu by ID | 通过ID获取Spu
+	@handler getSpuCount
+	post /spu/count (IDReq) returns (SpuCountResp )
+}

@@ -1,0 +1,115 @@
+import "../base.api"
+
+type (
+	// The response data of category information | Category信息
+	CategoryInfo {
+		BaseIDInfo
+
+		// Status 开启状态
+		Status *uint32 `json:"status,optional"`
+
+		// ParentId 父分类编号
+		ParentId *uint64 `json:"parentId,optional"`
+
+		// Name 分类名称
+		Name *string `json:"name,optional"`
+
+		// PicUrl 移动端分类图
+		PicUrl *string `json:"picUrl,optional"`
+
+		// BigPicUrl PC 端分类图
+		BigPicUrl *string `json:"bigPicUrl,optional"`
+	}
+	CategoryBase {
+		// ParentId 父分类编号
+		ParentId uint64 `json:"parentId"`
+
+		// Name 分类名称
+		Name string `json:"name"`
+
+		// PicUrl 移动端分类图
+		PicUrl string `json:"picUrl"`
+
+		// BigPicUrl PC 端分类图
+		BigPicUrl *string `json:"bigPicUrl,optional"`
+
+		// Sort 分类排序
+		Sort *uint32 `json:"sort,optional"`
+
+		// Status 开启状态
+		Status uint32 `json:"status"`
+	}
+
+	CategoryCreateReq {
+		CategoryBase
+		Description *string `json:"description,optional"`
+	}
+	CategoryListReq {
+
+		// ParentId 父分类编号
+		ParentId *uint64 `path:"parentId,optional"`
+
+		// Name 分类名称
+		Name *string `path:"name,optional"`
+
+		// Status 开启状态
+		Status *uint32 `path:"status,optional"`
+	}
+	CategoryResp {
+		BaseIDInfo
+
+		// Status 开启状态
+		Status *uint32 `json:"status,optional"`
+
+		// ParentId 父分类编号
+		ParentId *uint64 `json:"parentId,optional"`
+
+		// Name 分类名称
+		Name *string `json:"name,optional"`
+
+		// PicUrl 移动端分类图
+		PicUrl *string `json:"picUrl,optional"`
+
+		// BigPicUrl PC 端分类图
+		BigPicUrl *string `json:"bigPicUrl,optional"`
+
+		// Sort 分类排序
+		Sort *uint32 `json:"sort,optional"`
+	}
+	CategoryUpdateReq {
+		IDReq
+		CategoryBase
+		Description string `json:"description,optional"`
+	}
+	CategoryListResp {
+		BaseListInfo
+
+		Data []CategoryResp `json:"data"`
+	}
+)
+
+@server(
+	group: category
+)
+
+service Product {
+	// Create category information | 创建Category
+	@handler createCategory
+	post /category/create (CategoryCreateReq) returns (BaseMsgResp)
+
+	// Update category information | 更新Category
+	@handler updateCategory
+	put /category/update (CategoryUpdateReq) returns (BaseMsgResp)
+
+	// Delete category information | 删除Category信息
+	@handler deleteCategory
+	delete /category/delete (IDReq) returns (BaseMsgResp)
+
+	// Get category list | 获取Category列表
+	@handler getCategoryList
+	get /category/list (CategoryListReq) returns (CategoryListResp)
+
+	// Get category by ID | 通过ID获取Category
+	@handler getCategoryById
+	get /category/:id (IDAtPathReq) returns (CategoryResp)
+}

@@ -1,0 +1,44 @@
+package property
+
+import (
+	"net/http"
+
+	"github.com/zeromicro/go-zero/rest/httpx"
+
+	"github.com/agui-coder/simple-admin-product-api/internal/logic/property"
+	"github.com/agui-coder/simple-admin-product-api/internal/svc"
+	"github.com/agui-coder/simple-admin-product-api/internal/types"
+)
+
+// swagger:route post /property/page property GetPropertyPage
+//
+// Get property list | 获取Property列表
+//
+// Get property list | 获取Property列表
+//
+// Parameters:
+//  + name: body
+//    require: true
+//    in: body
+//    type: PropertyPageReq
+//
+// Responses:
+//  200: PropertyListResp
+
+func GetPropertyPageHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		var req types.PropertyPageReq
+		if err := httpx.Parse(r, &req, true); err != nil {
+			httpx.ErrorCtx(r.Context(), w, err)
+			return
+		}
+
+		l := property.NewGetPropertyPageLogic(r.Context(), svcCtx)
+		resp, err := l.GetPropertyPage(&req)
+		if err != nil {
+			httpx.ErrorCtx(r.Context(), w, err)
+		} else {
+			httpx.OkJsonCtx(r.Context(), w, resp)
+		}
+	}
+}

@@ -1,0 +1,121 @@
+import "../base.api"
+
+type (
+    // The response data of comment information | Comment信息
+    CommentInfo {
+        BaseIDInfo
+
+        // UserId
+        UserId  *int64 `json:"userId,optional"`
+
+        // UserNickname
+        UserNickname  *string `json:"userNickname,optional"`
+
+        // UserAvatar
+        UserAvatar  *string `json:"userAvatar,optional"`
+
+        // Anonymous
+        Anonymous  *bool `json:"anonymous,optional"`
+
+        // OrderId
+        OrderId  *int64 `json:"orderId,optional"`
+
+        // OrderItemId
+        OrderItemId  *int64 `json:"orderItemId,optional"`
+
+        // SpuId
+        SpuId  *int64 `json:"spuId,optional"`
+
+        // SpuName
+        SpuName  *string `json:"spuName,optional"`
+
+        // SkuId
+        SkuId  *int64 `json:"skuId,optional"`
+
+        // SkuPicUrl
+        SkuPicUrl  *string `json:"skuPicUrl,optional"`
+
+        // SkuProperties
+        SkuProperties  *string `json:"skuProperties,optional"`
+
+        // Visible
+        Visible  *bool `json:"visible,optional"`
+
+        // Scores
+        Scores  *int32 `json:"scores,optional"`
+
+        // DescriptionScores
+        DescriptionScores  *int32 `json:"descriptionScores,optional"`
+
+        // BenefitScores
+        BenefitScores  *int32 `json:"benefitScores,optional"`
+
+        // Content
+        Content  *string `json:"content,optional"`
+
+        // PicUrls
+        PicUrls  *string `json:"picUrls,optional"`
+
+        // ReplyStatus
+        ReplyStatus  *bool `json:"replyStatus,optional"`
+
+        // ReplyUserId
+        ReplyUserId  *int64 `json:"replyUserId,optional"`
+
+        // ReplyContent
+        ReplyContent  *string `json:"replyContent,optional"`
+
+        // ReplyTime
+        ReplyTime  *int64 `json:"replyTime,optional"`
+    }
+
+    // The response data of comment list | Comment列表数据
+    CommentListResp {
+        BaseDataInfo
+
+        // Comment list data | Comment列表数据
+        Data CommentListInfo `json:"data"`
+    }
+
+    // Comment list data | Comment列表数据
+    CommentListInfo {
+        BaseListInfo
+
+        // The API list data | Comment列表数据
+        Data  []CommentInfo  `json:"data"`
+    }
+
+    // Get comment list request params | Comment列表请求参数
+    CommentListReq {
+        PageInfo
+
+        // UserNickname
+        UserNickname  *string `json:"userNickname,optional"`
+
+        // UserAvatar
+        UserAvatar  *string `json:"userAvatar,optional"`
+
+        // SpuName
+        SpuName  *string `json:"spuName,optional"`
+    }
+
+    // Comment information response | Comment信息返回体
+    CommentInfoResp {
+        BaseDataInfo
+
+        // Comment information | Comment数据
+        Data CommentInfo `json:"data"`
+    }
+)
+
+@server(
+    jwt: Auth
+    group: comment
+    middleware: Authority
+)
+
+service Product {
+    // Create comment information | 创建Comment
+    @handler createComment
+    post /comment/create (CommentInfo) returns (BaseMsgResp)
+}

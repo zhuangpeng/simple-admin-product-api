@@ -1,0 +1,99 @@
+import "../base.api"
+
+type (
+		BrandBase {
+			// Name 品牌名称
+			Name string `json:"name"`
+
+			// PicUrl 品牌图片
+			PicUrl string `json:"picUrl"`
+
+			// Sort 品牌排序
+			Sort uint32 `json:"sort"`
+
+			// Description 品牌描述
+			Description *string `json:"description,optional"`
+
+			// Status 状态
+			Status uint32 `json:"status"`
+		}
+
+	BrandCreateReq {
+		BrandBase
+	}
+
+	BrandListReq {
+		// Name 品牌名称
+		Name *string `path:"name,optional"`
+	}
+	BrandPageReq {
+		PageAtPathInfo
+
+		// Name 品牌名称
+		Name *string `path:"name,optional"`
+
+		// Status 状态
+		Status *uint32 `path:"status,optional"`
+		// Date 创建时间
+		CreatedAt []int64 `path:"createdAt,optional"`
+	}
+	BrandListInfoResp {
+		BaseListInfo
+
+		Data []BrandResp `json:"data"`
+	}
+	BrandResp {
+		BaseIDInfo
+		// 品牌id
+		id *uint64 `json:"id"`
+
+		// Name 品牌名称
+		Name *string `json:"name"`
+
+		// PicUrl 品牌图片
+		PicUrl *string `json:"picUrl"`
+
+		// Sort 品牌排序
+		Sort *uint32 `json:"sort"`
+
+		// Description 品牌描述
+		Description *string `json:"description"`
+
+		// Status 状态
+		Status *uint32 `json:"status"`
+	}
+	BrandUpdateReq {
+		BaseIDInfo
+		BrandBase
+	}
+)
+
+@server(
+	group: brand
+)
+
+service Product {
+	// Create brand information | 创建Brand
+	@handler createBrand
+	post /brand/create (BrandCreateReq) returns (BaseMsgResp)
+
+	// Update brand information | 更新Brand
+	@handler updateBrand
+	put /brand/update (BrandUpdateReq) returns (BaseMsgResp)
+
+	// Delete brand information | 删除Brand信息
+	@handler deleteBrand
+	delete /brand/delete (IDReq) returns (BaseMsgResp)
+
+	// Get brand by ID | 通过ID获取Brand
+	@handler getBrandById
+	get /brand/:id (IDAtPathReq) returns (BrandResp)
+
+	// Get brand list | 获取品牌精简信息列表
+	@handler getBrandList
+	get /brand/list (BrandListReq)returns (BrandListInfoResp)
+
+	// Get brand page | 获取Brand列表
+	@handler getBrandPage
+	get /brand/page (BrandPageReq) returns (BrandListInfoResp)
+}
