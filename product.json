@@ -1,0 +1,3607 @@
+{
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "swagger": "2.0",
+  "info": {
+    "description": "Description: product service",
+    "title": "product",
+    "version": "0.0.1"
+  },
+  "host": "localhost:0",
+  "basePath": "/",
+  "paths": {
+    "/brand/create": {
+      "post": {
+        "description": "Create brand information | 创建Brand",
+        "tags": [
+          "brand"
+        ],
+        "summary": "Create brand information | 创建Brand",
+        "operationId": "CreateBrand",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/BrandCreateReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BaseMsgResp",
+            "schema": {
+              "$ref": "#/definitions/BaseMsgResp"
+            }
+          }
+        }
+      }
+    },
+    "/brand/delete": {
+      "delete": {
+        "description": "Delete brand information | 删除Brand信息",
+        "tags": [
+          "brand"
+        ],
+        "summary": "Delete brand information | 删除Brand信息",
+        "operationId": "DeleteBrand",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/IDReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BaseMsgResp",
+            "schema": {
+              "$ref": "#/definitions/BaseMsgResp"
+            }
+          }
+        }
+      }
+    },
+    "/brand/list": {
+      "get": {
+        "description": "Get brand list | 获取品牌精简信息列表",
+        "tags": [
+          "brand"
+        ],
+        "summary": "Get brand list | 获取品牌精简信息列表",
+        "operationId": "GetBrandList",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "name",
+            "in": "path"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/BrandListReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BrandListInfoResp",
+            "schema": {
+              "$ref": "#/definitions/BrandListInfoResp"
+            }
+          }
+        }
+      }
+    },
+    "/brand/page": {
+      "get": {
+        "description": "Get brand page | 获取Brand列表",
+        "tags": [
+          "brand"
+        ],
+        "summary": "Get brand page | 获取Brand列表",
+        "operationId": "GetBrandPage",
+        "parameters": [
+          {
+            "type": "integer",
+            "name": "page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "name": "pageSize",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "name": "status",
+            "in": "query"
+          },
+          {
+            "type": "array",
+            "name": "createdAt",
+            "in": "query"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/BrandPageReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BrandListInfoResp",
+            "schema": {
+              "$ref": "#/definitions/BrandListInfoResp"
+            }
+          }
+        }
+      }
+    },
+    "/brand/update": {
+      "put": {
+        "description": "Update brand information | 更新Brand",
+        "tags": [
+          "brand"
+        ],
+        "summary": "Update brand information | 更新Brand",
+        "operationId": "UpdateBrand",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/BrandUpdateReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BaseMsgResp",
+            "schema": {
+              "$ref": "#/definitions/BaseMsgResp"
+            }
+          }
+        }
+      }
+    },
+    "/brand/{id}": {
+      "get": {
+        "description": "Get brand by ID | 通过ID获取Brand",
+        "tags": [
+          "brand"
+        ],
+        "summary": "Get brand by ID | 通过ID获取Brand",
+        "operationId": "GetBrandById",
+        "parameters": [
+          {
+            "type": "integer",
+            "name": "id",
+            "in": "path"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/IDAtPathReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BrandResp",
+            "schema": {
+              "$ref": "#/definitions/BrandResp"
+            }
+          }
+        }
+      }
+    },
+    "/category/create": {
+      "post": {
+        "description": "Create category information | 创建Category",
+        "tags": [
+          "category"
+        ],
+        "summary": "Create category information | 创建Category",
+        "operationId": "CreateCategory",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/CategoryCreateReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BaseMsgResp",
+            "schema": {
+              "$ref": "#/definitions/BaseMsgResp"
+            }
+          }
+        }
+      }
+    },
+    "/category/delete": {
+      "delete": {
+        "description": "Delete category information | 删除Category信息",
+        "tags": [
+          "category"
+        ],
+        "summary": "Delete category information | 删除Category信息",
+        "operationId": "DeleteCategory",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/IDReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BaseMsgResp",
+            "schema": {
+              "$ref": "#/definitions/BaseMsgResp"
+            }
+          }
+        }
+      }
+    },
+    "/category/list": {
+      "get": {
+        "description": "Get category list | 获取Category列表",
+        "tags": [
+          "category"
+        ],
+        "summary": "Get category list | 获取Category列表",
+        "operationId": "GetCategoryList",
+        "parameters": [
+          {
+            "type": "integer",
+            "name": "parentId",
+            "in": "path"
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "in": "path"
+          },
+          {
+            "type": "integer",
+            "name": "status",
+            "in": "path"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/CategoryListReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "CategoryListResp",
+            "schema": {
+              "$ref": "#/definitions/CategoryListResp"
+            }
+          }
+        }
+      }
+    },
+    "/category/update": {
+      "put": {
+        "description": "Update category information | 更新Category",
+        "tags": [
+          "category"
+        ],
+        "summary": "Update category information | 更新Category",
+        "operationId": "UpdateCategory",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/CategoryUpdateReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BaseMsgResp",
+            "schema": {
+              "$ref": "#/definitions/BaseMsgResp"
+            }
+          }
+        }
+      }
+    },
+    "/category/{id}": {
+      "get": {
+        "description": "Get category by ID | 通过ID获取Category",
+        "tags": [
+          "category"
+        ],
+        "summary": "Get category by ID | 通过ID获取Category",
+        "operationId": "GetCategoryById",
+        "parameters": [
+          {
+            "type": "integer",
+            "name": "id",
+            "in": "path"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/IDAtPathReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "CategoryResp",
+            "schema": {
+              "$ref": "#/definitions/CategoryResp"
+            }
+          }
+        }
+      }
+    },
+    "/comment/create": {
+      "post": {
+        "description": "Create comment information | 创建Comment",
+        "tags": [
+          "comment"
+        ],
+        "summary": "Create comment information | 创建Comment",
+        "operationId": "CreateComment",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/CommentInfo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BaseMsgResp",
+            "schema": {
+              "$ref": "#/definitions/BaseMsgResp"
+            }
+          }
+        }
+      }
+    },
+    "/product/init/database": {
+      "get": {
+        "description": "Initialize database | 初始化数据库",
+        "tags": [
+          "base"
+        ],
+        "summary": "Initialize database | 初始化数据库",
+        "operationId": "InitDatabase",
+        "responses": {
+          "200": {
+            "description": "BaseMsgResp",
+            "schema": {
+              "$ref": "#/definitions/BaseMsgResp"
+            }
+          }
+        }
+      }
+    },
+    "/property": {
+      "post": {
+        "description": "Get property by ID | 通过ID获取Property",
+        "tags": [
+          "property"
+        ],
+        "summary": "Get property by ID | 通过ID获取Property",
+        "operationId": "GetPropertyById",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/IDReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "PropertyInfo",
+            "schema": {
+              "$ref": "#/definitions/PropertyInfo"
+            }
+          }
+        }
+      }
+    },
+    "/property/create": {
+      "post": {
+        "description": "Create property information | 创建Property",
+        "tags": [
+          "property"
+        ],
+        "summary": "Create property information | 创建Property",
+        "operationId": "CreateProperty",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/PropertyBase"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BaseMsgResp",
+            "schema": {
+              "$ref": "#/definitions/BaseMsgResp"
+            }
+          }
+        }
+      }
+    },
+    "/property/delete": {
+      "post": {
+        "description": "Delete property information | 删除Property信息",
+        "tags": [
+          "property"
+        ],
+        "summary": "Delete property information | 删除Property信息",
+        "operationId": "DeleteProperty",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/IDReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BaseMsgResp",
+            "schema": {
+              "$ref": "#/definitions/BaseMsgResp"
+            }
+          }
+        }
+      }
+    },
+    "/property/get-value-list": {
+      "post": {
+        "description": "Get property list | 获取Property列表",
+        "tags": [
+          "property"
+        ],
+        "summary": "Get property list | 获取Property列表",
+        "operationId": "GetPropertyAndValueList",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/PropertyListReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "PropertyAndValueListResp",
+            "schema": {
+              "$ref": "#/definitions/PropertyAndValueListResp"
+            }
+          }
+        }
+      }
+    },
+    "/property/list": {
+      "post": {
+        "description": "Get property list | 获取Property列表",
+        "tags": [
+          "property"
+        ],
+        "summary": "Get property list | 获取Property列表",
+        "operationId": "GetPropertyList",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/PropertyListReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "PropertyListResp",
+            "schema": {
+              "$ref": "#/definitions/PropertyListResp"
+            }
+          }
+        }
+      }
+    },
+    "/property/page": {
+      "post": {
+        "description": "Get property list | 获取Property列表",
+        "tags": [
+          "property"
+        ],
+        "summary": "Get property list | 获取Property列表",
+        "operationId": "GetPropertyPage",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/PropertyPageReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "PropertyListResp",
+            "schema": {
+              "$ref": "#/definitions/PropertyListResp"
+            }
+          }
+        }
+      }
+    },
+    "/property/update": {
+      "post": {
+        "description": "Update property information | 更新Property",
+        "tags": [
+          "property"
+        ],
+        "summary": "Update property information | 更新Property",
+        "operationId": "UpdateProperty",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/PropertyUpdateReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BaseMsgResp",
+            "schema": {
+              "$ref": "#/definitions/BaseMsgResp"
+            }
+          }
+        }
+      }
+    },
+    "/property/value": {
+      "post": {
+        "description": "Get property value by ID | 通过ID获取PropertyValue",
+        "tags": [
+          "propertyvalue"
+        ],
+        "summary": "Get property value by ID | 通过ID获取PropertyValue",
+        "operationId": "GetPropertyValueById",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/IDReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "PropertyValueInfo",
+            "schema": {
+              "$ref": "#/definitions/PropertyValueInfo"
+            }
+          }
+        }
+      }
+    },
+    "/property/value/create": {
+      "post": {
+        "description": "Create property value information | 创建PropertyValue",
+        "tags": [
+          "propertyvalue"
+        ],
+        "summary": "Create property value information | 创建PropertyValue",
+        "operationId": "CreatePropertyValue",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/PropertyValueBase"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BaseMsgResp",
+            "schema": {
+              "$ref": "#/definitions/BaseMsgResp"
+            }
+          }
+        }
+      }
+    },
+    "/property/value/delete": {
+      "post": {
+        "description": "Delete property value information | 删除PropertyValue信息",
+        "tags": [
+          "propertyvalue"
+        ],
+        "summary": "Delete property value information | 删除PropertyValue信息",
+        "operationId": "DeletePropertyValue",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/IDReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BaseMsgResp",
+            "schema": {
+              "$ref": "#/definitions/BaseMsgResp"
+            }
+          }
+        }
+      }
+    },
+    "/property/value/page": {
+      "post": {
+        "description": "Get property value list | 获取PropertyValue列表",
+        "tags": [
+          "propertyvalue"
+        ],
+        "summary": "Get property value list | 获取PropertyValue列表",
+        "operationId": "GetPropertyValuePage",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/PropertyValuePageReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "PropertyValueListResp",
+            "schema": {
+              "$ref": "#/definitions/PropertyValueListResp"
+            }
+          }
+        }
+      }
+    },
+    "/property/value/update": {
+      "post": {
+        "description": "Update property value information | 更新PropertyValue",
+        "tags": [
+          "propertyvalue"
+        ],
+        "summary": "Update property value information | 更新PropertyValue",
+        "operationId": "UpdatePropertyValue",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/PropertyValueUpdateReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BaseMsgResp",
+            "schema": {
+              "$ref": "#/definitions/BaseMsgResp"
+            }
+          }
+        }
+      }
+    },
+    "/spu/count": {
+      "post": {
+        "description": "Get spu by ID | 通过ID获取Spu",
+        "tags": [
+          "spu"
+        ],
+        "summary": "Get spu by ID | 通过ID获取Spu",
+        "operationId": "GetSpuCount",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/IDReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "SpuCountResp",
+            "schema": {
+              "$ref": "#/definitions/SpuCountResp"
+            }
+          }
+        }
+      }
+    },
+    "/spu/create": {
+      "post": {
+        "description": "Create spu information | 创建Spu",
+        "tags": [
+          "spu"
+        ],
+        "summary": "Create spu information | 创建Spu",
+        "operationId": "CreateSpu",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/SpuCreateReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BaseMsgResp",
+            "schema": {
+              "$ref": "#/definitions/BaseMsgResp"
+            }
+          }
+        }
+      }
+    },
+    "/spu/delete": {
+      "delete": {
+        "description": "Delete spu information | 删除Spu信息",
+        "tags": [
+          "spu"
+        ],
+        "summary": "Delete spu information | 删除Spu信息",
+        "operationId": "DeleteSpu",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/IDReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BaseMsgResp",
+            "schema": {
+              "$ref": "#/definitions/BaseMsgResp"
+            }
+          }
+        }
+      }
+    },
+    "/spu/detail": {
+      "post": {
+        "description": "Get spu by ID | 通过ID获取Spu",
+        "tags": [
+          "spu"
+        ],
+        "summary": "Get spu by ID | 通过ID获取Spu",
+        "operationId": "GetSpuDetail",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/IDReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "SpuDetailResp",
+            "schema": {
+              "$ref": "#/definitions/SpuDetailResp"
+            }
+          }
+        }
+      }
+    },
+    "/spu/list": {
+      "post": {
+        "description": "Get spu list | 获取Spu列表",
+        "tags": [
+          "spu"
+        ],
+        "summary": "Get spu list | 获取Spu列表",
+        "operationId": "GetSpuList",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/IDsReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "SpuListResp",
+            "schema": {
+              "$ref": "#/definitions/SpuListResp"
+            }
+          }
+        }
+      }
+    },
+    "/spu/page": {
+      "post": {
+        "description": "Get spu list | 获取Spu列表",
+        "tags": [
+          "spu"
+        ],
+        "summary": "Get spu list | 获取Spu列表",
+        "operationId": "GetSpuPage",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/SpuPageReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "SpuPageResp",
+            "schema": {
+              "$ref": "#/definitions/SpuPageResp"
+            }
+          }
+        }
+      }
+    },
+    "/spu/simple-list": {
+      "post": {
+        "description": "Get spu list | 获取Spu列表",
+        "tags": [
+          "spu"
+        ],
+        "summary": "Get spu list | 获取Spu列表",
+        "operationId": "GetSpuSimpleList",
+        "responses": {
+          "200": {
+            "description": "SpuSimpleListResp",
+            "schema": {
+              "$ref": "#/definitions/SpuSimpleListResp"
+            }
+          }
+        }
+      }
+    },
+    "/spu/update": {
+      "put": {
+        "description": "Update spu information | 更新Spu",
+        "tags": [
+          "spu"
+        ],
+        "summary": "Update spu information | 更新Spu",
+        "operationId": "UpdateSpu",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/SpuUpdateReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BaseMsgResp",
+            "schema": {
+              "$ref": "#/definitions/BaseMsgResp"
+            }
+          }
+        }
+      }
+    },
+    "/spu/update-status": {
+      "put": {
+        "description": "Update spu information | 更新Spu",
+        "tags": [
+          "spu"
+        ],
+        "summary": "Update spu information | 更新Spu",
+        "operationId": "UpdateStatus",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/SpuUpdateStatusReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BaseMsgResp",
+            "schema": {
+              "$ref": "#/definitions/BaseMsgResp"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "BaseDataInfo": {
+      "description": "The basic response with data | 基础带数据信息",
+      "type": "object",
+      "properties": {
+        "code": {
+          "description": "Error code | 错误代码",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "Code"
+        },
+        "data": {
+          "description": "Data | 数据",
+          "type": "string",
+          "x-go-name": "Data"
+        },
+        "msg": {
+          "description": "Message | 提示信息",
+          "type": "string",
+          "x-go-name": "Msg"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/internal/types"
+    },
+    "BaseIDInfo": {
+      "description": "The base ID response data | 基础ID信息",
+      "type": "object",
+      "properties": {
+        "createdAt": {
+          "description": "Create date | 创建日期",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "CreatedAt"
+        },
+        "id": {
+          "description": "ID",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "Id"
+        },
+        "updatedAt": {
+          "description": "Update date | 更新日期",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "UpdatedAt"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/internal/types"
+    },
+    "BaseListInfo": {
+      "description": "The basic response with data | 基础带数据信息",
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "Data | 数据",
+          "type": "string",
+          "x-go-name": "Data"
+        },
+        "total": {
+          "description": "The total number of data | 数据总数",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "Total"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/api/internal/types"
+    },
+    "BaseMsgResp": {
+      "description": "The basic response without data | 基础不带数据信息",
+      "type": "object",
+      "properties": {
+        "code": {
+          "description": "Error code | 错误代码",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "Code"
+        },
+        "msg": {
+          "description": "Message | 提示信息",
+          "type": "string",
+          "x-go-name": "Msg"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/internal/types"
+    },
+    "BaseUUIDInfo": {
+      "description": "The base UUID response data | 基础UUID信息",
+      "type": "object",
+      "properties": {
+        "createdAt": {
+          "description": "Create date | 创建日期",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "CreatedAt"
+        },
+        "id": {
+          "description": "ID",
+          "type": "string",
+          "x-go-name": "Id"
+        },
+        "updatedAt": {
+          "description": "Update date | 更新日期",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "UpdatedAt"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/internal/types"
+    },
+    "BrandBase": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "description": "Description",
+          "type": "string",
+          "x-go-name": "Description"
+        },
+        "name": {
+          "description": "Name",
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "picUrl": {
+          "description": "PicUrl",
+          "type": "string",
+          "x-go-name": "PicUrl"
+        },
+        "sort": {
+          "description": "Sort",
+          "type": "integer",
+          "format": "uint32",
+          "x-go-name": "Sort"
+        },
+        "status": {
+          "description": "Status",
+          "type": "integer",
+          "format": "uint32",
+          "x-go-name": "Status"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/internal/types"
+    },
+    "BrandCreateReq": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "description": "Description 品牌描述",
+          "type": "string",
+          "x-go-name": "Description"
+        },
+        "name": {
+          "description": "Name 品牌名称",
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "picUrl": {
+          "description": "PicUrl 品牌图片",
+          "type": "string",
+          "x-go-name": "PicUrl"
+        },
+        "sort": {
+          "description": "Sort 品牌排序",
+          "type": "integer",
+          "format": "uint32",
+          "x-go-name": "Sort"
+        },
+        "status": {
+          "description": "Status 状态",
+          "type": "integer",
+          "format": "uint32",
+          "x-go-name": "Status"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/api/internal/types"
+    },
+    "BrandListInfoResp": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "Data | 数据",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BrandResp"
+          },
+          "x-go-name": "Data"
+        },
+        "total": {
+          "description": "The total number of data | 数据总数",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "Total"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/internal/types"
+    },
+    "BrandListReq": {
+      "type": "object",
+      "properties": {
+        "Name": {
+          "description": "Name",
+          "type": "string"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/internal/types"
+    },
+    "BrandPageReq": {
+      "type": "object",
+      "required": [
+        "Page",
+        "PageSize"
+      ],
+      "properties": {
+        "CreatedAt": {
+          "description": "Date",
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "Name": {
+          "description": "Name",
+          "type": "string"
+        },
+        "Page": {
+          "description": "Page number | 第几页",
+          "type": "integer",
+          "format": "uint64",
+          "minimum": 0
+        },
+        "PageSize": {
+          "description": "Page size | 单页数据行数",
+          "type": "integer",
+          "format": "uint64",
+          "maximum": 100000
+        },
+        "Status": {
+          "description": "Status",
+          "type": "integer",
+          "format": "uint32"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/internal/types"
+    },
+    "BrandResp": {
+      "type": "object",
+      "properties": {
+        "createdAt": {
+          "description": "Create date | 创建日期",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "CreatedAt"
+        },
+        "description": {
+          "description": "Description 品牌描述",
+          "type": "string",
+          "x-go-name": "Description"
+        },
+        "id": {
+          "description": "品牌id",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "Id"
+        },
+        "name": {
+          "description": "Name 品牌名称",
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "picUrl": {
+          "description": "PicUrl 品牌图片",
+          "type": "string",
+          "x-go-name": "PicUrl"
+        },
+        "sort": {
+          "description": "Sort 品牌排序",
+          "type": "integer",
+          "format": "uint32",
+          "x-go-name": "Sort"
+        },
+        "status": {
+          "description": "Status 状态",
+          "type": "integer",
+          "format": "uint32",
+          "x-go-name": "Status"
+        },
+        "updatedAt": {
+          "description": "Update date | 更新日期",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "UpdatedAt"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/api/internal/types"
+    },
+    "BrandUpdateReq": {
+      "type": "object",
+      "properties": {
+        "createdAt": {
+          "description": "Create date | 创建日期",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "CreatedAt"
+        },
+        "description": {
+          "description": "Description",
+          "type": "string",
+          "x-go-name": "Description"
+        },
+        "id": {
+          "description": "ID",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "Id"
+        },
+        "name": {
+          "description": "Name",
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "picUrl": {
+          "description": "PicUrl",
+          "type": "string",
+          "x-go-name": "PicUrl"
+        },
+        "sort": {
+          "description": "Sort",
+          "type": "integer",
+          "format": "uint32",
+          "x-go-name": "Sort"
+        },
+        "status": {
+          "description": "Status",
+          "type": "integer",
+          "format": "uint32",
+          "x-go-name": "Status"
+        },
+        "updatedAt": {
+          "description": "Update date | 更新日期",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "UpdatedAt"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/internal/types"
+    },
+    "CategoryBase": {
+      "type": "object",
+      "properties": {
+        "bigPicUrl": {
+          "description": "BigPicUrl",
+          "type": "string",
+          "x-go-name": "BigPicUrl"
+        },
+        "name": {
+          "description": "Name",
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "parentId": {
+          "description": "ParentId",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "ParentId"
+        },
+        "picUrl": {
+          "description": "PicUrl",
+          "type": "string",
+          "x-go-name": "PicUrl"
+        },
+        "sort": {
+          "description": "Sort",
+          "type": "integer",
+          "format": "uint32",
+          "x-go-name": "Sort"
+        },
+        "status": {
+          "description": "Status",
+          "type": "integer",
+          "format": "uint32",
+          "x-go-name": "Status"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/internal/types"
+    },
+    "CategoryCreateReq": {
+      "type": "object",
+      "properties": {
+        "bigPicUrl": {
+          "description": "BigPicUrl PC 端分类图",
+          "type": "string",
+          "x-go-name": "BigPicUrl"
+        },
+        "description": {
+          "type": "string",
+          "x-go-name": "Description"
+        },
+        "name": {
+          "description": "Name 分类名称",
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "parentId": {
+          "description": "ParentId 父分类编号",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "ParentId"
+        },
+        "picUrl": {
+          "description": "PicUrl 移动端分类图",
+          "type": "string",
+          "x-go-name": "PicUrl"
+        },
+        "sort": {
+          "description": "Sort 分类排序",
+          "type": "integer",
+          "format": "uint32",
+          "x-go-name": "Sort"
+        },
+        "status": {
+          "description": "Status 开启状态",
+          "type": "integer",
+          "format": "uint32",
+          "x-go-name": "Status"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/api/internal/types"
+    },
+    "CategoryInfo": {
+      "description": "The response data of category information | Category信息",
+      "type": "object",
+      "properties": {
+        "bigPicUrl": {
+          "description": "BigPicUrl PC 端分类图",
+          "type": "string",
+          "x-go-name": "BigPicUrl"
+        },
+        "createdAt": {
+          "description": "Create date | 创建日期",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "CreatedAt"
+        },
+        "id": {
+          "description": "ID",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "Id"
+        },
+        "name": {
+          "description": "Name 分类名称",
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "parentId": {
+          "description": "ParentId 父分类编号",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "ParentId"
+        },
+        "picUrl": {
+          "description": "PicUrl 移动端分类图",
+          "type": "string",
+          "x-go-name": "PicUrl"
+        },
+        "status": {
+          "description": "Status 开启状态",
+          "type": "integer",
+          "format": "uint32",
+          "x-go-name": "Status"
+        },
+        "updatedAt": {
+          "description": "Update date | 更新日期",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "UpdatedAt"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/api/internal/types"
+    },
+    "CategoryListReq": {
+      "type": "object",
+      "properties": {
+        "Name": {
+          "description": "Name",
+          "type": "string"
+        },
+        "ParentId": {
+          "description": "ParentId",
+          "type": "integer",
+          "format": "uint64"
+        },
+        "Status": {
+          "description": "Status",
+          "type": "integer",
+          "format": "uint32"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/internal/types"
+    },
+    "CategoryListResp": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "Data | 数据",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CategoryResp"
+          },
+          "x-go-name": "Data"
+        },
+        "total": {
+          "description": "The total number of data | 数据总数",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "Total"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/internal/types"
+    },
+    "CategoryResp": {
+      "type": "object",
+      "properties": {
+        "bigPicUrl": {
+          "description": "BigPicUrl PC 端分类图",
+          "type": "string",
+          "x-go-name": "BigPicUrl"
+        },
+        "createdAt": {
+          "description": "Create date | 创建日期",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "CreatedAt"
+        },
+        "id": {
+          "description": "ID",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "Id"
+        },
+        "name": {
+          "description": "Name 分类名称",
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "parentId": {
+          "description": "ParentId 父分类编号",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "ParentId"
+        },
+        "picUrl": {
+          "description": "PicUrl 移动端分类图",
+          "type": "string",
+          "x-go-name": "PicUrl"
+        },
+        "sort": {
+          "description": "Sort 分类排序",
+          "type": "integer",
+          "format": "uint32",
+          "x-go-name": "Sort"
+        },
+        "status": {
+          "description": "Status 开启状态",
+          "type": "integer",
+          "format": "uint32",
+          "x-go-name": "Status"
+        },
+        "updatedAt": {
+          "description": "Update date | 更新日期",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "UpdatedAt"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/api/internal/types"
+    },
+    "CategoryUpdateReq": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "bigPicUrl": {
+          "description": "BigPicUrl PC 端分类图",
+          "type": "string",
+          "x-go-name": "BigPicUrl"
+        },
+        "description": {
+          "type": "string",
+          "x-go-name": "Description"
+        },
+        "id": {
+          "description": "ID",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "Id"
+        },
+        "name": {
+          "description": "Name 分类名称",
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "parentId": {
+          "description": "ParentId 父分类编号",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "ParentId"
+        },
+        "picUrl": {
+          "description": "PicUrl 移动端分类图",
+          "type": "string",
+          "x-go-name": "PicUrl"
+        },
+        "sort": {
+          "description": "Sort 分类排序",
+          "type": "integer",
+          "format": "uint32",
+          "x-go-name": "Sort"
+        },
+        "status": {
+          "description": "Status 开启状态",
+          "type": "integer",
+          "format": "uint32",
+          "x-go-name": "Status"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/api/internal/types"
+    },
+    "CommentInfo": {
+      "description": "The response data of comment information | Comment信息",
+      "type": "object",
+      "properties": {
+        "anonymous": {
+          "description": "Anonymous",
+          "type": "boolean",
+          "x-go-name": "Anonymous"
+        },
+        "benefitScores": {
+          "description": "BenefitScores",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "BenefitScores"
+        },
+        "content": {
+          "description": "Content",
+          "type": "string",
+          "x-go-name": "Content"
+        },
+        "createdAt": {
+          "description": "Create date | 创建日期",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "CreatedAt"
+        },
+        "descriptionScores": {
+          "description": "DescriptionScores",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "DescriptionScores"
+        },
+        "id": {
+          "description": "ID",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "Id"
+        },
+        "orderId": {
+          "description": "OrderId",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "OrderId"
+        },
+        "orderItemId": {
+          "description": "OrderItemId",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "OrderItemId"
+        },
+        "picUrls": {
+          "description": "PicUrls",
+          "type": "string",
+          "x-go-name": "PicUrls"
+        },
+        "replyContent": {
+          "description": "ReplyContent",
+          "type": "string",
+          "x-go-name": "ReplyContent"
+        },
+        "replyStatus": {
+          "description": "ReplyStatus",
+          "type": "boolean",
+          "x-go-name": "ReplyStatus"
+        },
+        "replyTime": {
+          "description": "ReplyTime",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "ReplyTime"
+        },
+        "replyUserId": {
+          "description": "ReplyUserId",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "ReplyUserId"
+        },
+        "scores": {
+          "description": "Scores",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "Scores"
+        },
+        "skuId": {
+          "description": "SkuId",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "SkuId"
+        },
+        "skuPicUrl": {
+          "description": "SkuPicUrl",
+          "type": "string",
+          "x-go-name": "SkuPicUrl"
+        },
+        "skuProperties": {
+          "description": "SkuProperties",
+          "type": "string",
+          "x-go-name": "SkuProperties"
+        },
+        "spuId": {
+          "description": "SpuId",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "SpuId"
+        },
+        "spuName": {
+          "description": "SpuName",
+          "type": "string",
+          "x-go-name": "SpuName"
+        },
+        "updatedAt": {
+          "description": "Update date | 更新日期",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "UpdatedAt"
+        },
+        "userAvatar": {
+          "description": "UserAvatar",
+          "type": "string",
+          "x-go-name": "UserAvatar"
+        },
+        "userId": {
+          "description": "UserId",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "UserId"
+        },
+        "userNickname": {
+          "description": "UserNickname",
+          "type": "string",
+          "x-go-name": "UserNickname"
+        },
+        "visible": {
+          "description": "Visible",
+          "type": "boolean",
+          "x-go-name": "Visible"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/api/internal/types"
+    },
+    "CommentInfoResp": {
+      "description": "Comment information response | Comment信息返回体",
+      "type": "object",
+      "properties": {
+        "code": {
+          "description": "Error code | 错误代码",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "Code"
+        },
+        "data": {
+          "description": "Data | 数据",
+          "type": "string",
+          "x-go-name": "Data",
+          "$ref": "#/definitions/CommentInfo"
+        },
+        "msg": {
+          "description": "Message | 提示信息",
+          "type": "string",
+          "x-go-name": "Msg"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/api/internal/types"
+    },
+    "CommentListInfo": {
+      "description": "Comment list data | Comment列表数据",
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "The API list data | Comment列表数据",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CommentInfo"
+          },
+          "x-go-name": "Data"
+        },
+        "total": {
+          "description": "The total number of data | 数据总数",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "Total"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/api/internal/types"
+    },
+    "CommentListReq": {
+      "description": "Get comment list request params | Comment列表请求参数",
+      "type": "object",
+      "required": [
+        "page",
+        "pageSize"
+      ],
+      "properties": {
+        "page": {
+          "description": "Page number | 第几页",
+          "type": "integer",
+          "format": "uint64",
+          "minimum": 0,
+          "x-go-name": "Page"
+        },
+        "pageSize": {
+          "description": "Page size | 单页数据行数",
+          "type": "integer",
+          "format": "uint64",
+          "maximum": 100000,
+          "x-go-name": "PageSize"
+        },
+        "spuName": {
+          "description": "SpuName",
+          "type": "string",
+          "x-go-name": "SpuName"
+        },
+        "userAvatar": {
+          "description": "UserAvatar",
+          "type": "string",
+          "x-go-name": "UserAvatar"
+        },
+        "userNickname": {
+          "description": "UserNickname",
+          "type": "string",
+          "x-go-name": "UserNickname"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/internal/types"
+    },
+    "CommentListResp": {
+      "description": "The response data of comment list | Comment列表数据",
+      "type": "object",
+      "properties": {
+        "code": {
+          "description": "Error code | 错误代码",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "Code"
+        },
+        "data": {
+          "description": "Data | 数据",
+          "type": "string",
+          "x-go-name": "Data",
+          "$ref": "#/definitions/CommentListInfo"
+        },
+        "msg": {
+          "description": "Message | 提示信息",
+          "type": "string",
+          "x-go-name": "Msg"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/internal/types"
+    },
+    "IDAtPathReq": {
+      "description": "Basic ID request | 基础ID参数请求",
+      "type": "object",
+      "required": [
+        "Id"
+      ],
+      "properties": {
+        "Id": {
+          "description": "ID",
+          "type": "integer",
+          "format": "uint64"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/internal/types"
+    },
+    "IDPathReq": {
+      "description": "Basic ID request | 基础ID地址参数请求",
+      "type": "object",
+      "required": [
+        "Id"
+      ],
+      "properties": {
+        "Id": {
+          "description": "ID",
+          "type": "integer",
+          "format": "uint64"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/internal/types"
+    },
+    "IDReq": {
+      "description": "Basic ID request | 基础ID参数请求",
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "description": "ID",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "Id"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/internal/types"
+    },
+    "IDsReq": {
+      "description": "Basic IDs request | 基础ID数组参数请求",
+      "type": "object",
+      "required": [
+        "ids"
+      ],
+      "properties": {
+        "ids": {
+          "description": "IDs",
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "uint64"
+          },
+          "x-go-name": "Ids"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/api/internal/types"
+    },
+    "PageAtPathInfo": {
+      "description": "The page request parameters | 列表请求参数",
+      "type": "object",
+      "required": [
+        "Page",
+        "PageSize"
+      ],
+      "properties": {
+        "Page": {
+          "description": "Page number | 第几页",
+          "type": "integer",
+          "format": "uint64",
+          "minimum": 0
+        },
+        "PageSize": {
+          "description": "Page size | 单页数据行数",
+          "type": "integer",
+          "format": "uint64",
+          "maximum": 100000
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/internal/types"
+    },
+    "PageInfo": {
+      "description": "The page request parameters | 列表请求参数",
+      "type": "object",
+      "required": [
+        "page",
+        "pageSize"
+      ],
+      "properties": {
+        "page": {
+          "description": "Page number | 第几页",
+          "type": "integer",
+          "format": "uint64",
+          "minimum": 0,
+          "x-go-name": "Page"
+        },
+        "pageSize": {
+          "description": "Page size | 单页数据行数",
+          "type": "integer",
+          "format": "uint64",
+          "maximum": 100000,
+          "x-go-name": "PageSize"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/internal/types"
+    },
+    "PropertyAndValue": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "description": "ID",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "Id"
+        },
+        "name": {
+          "description": "Name",
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Value"
+          },
+          "x-go-name": "Value"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/internal/types"
+    },
+    "PropertyAndValueListResp": {
+      "type": "object",
+      "properties": {
+        "propertyAndValue": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PropertyAndValue"
+          },
+          "x-go-name": "PropertyAndValue"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/internal/types"
+    },
+    "PropertyBase": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Name 名称",
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "remark": {
+          "description": "Remark 备注",
+          "type": "string",
+          "x-go-name": "Remark"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/api/internal/types"
+    },
+    "PropertyInfo": {
+      "description": "The response data of property information | Property信息",
+      "type": "object",
+      "properties": {
+        "createdAt": {
+          "description": "Create date | 创建日期",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "CreatedAt"
+        },
+        "id": {
+          "description": "ID",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "Id"
+        },
+        "name": {
+          "description": "Name 名称",
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "remark": {
+          "description": "Remark 备注",
+          "type": "string",
+          "x-go-name": "Remark"
+        },
+        "status": {
+          "description": "Status 状态",
+          "type": "integer",
+          "format": "uint32",
+          "x-go-name": "Status"
+        },
+        "updatedAt": {
+          "description": "Update date | 更新日期",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "UpdatedAt"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/api/internal/types"
+    },
+    "PropertyListReq": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Name 名称",
+          "type": "string",
+          "x-go-name": "Name"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/api/internal/types"
+    },
+    "PropertyListResp": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "Data | 数据",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PropertyInfo"
+          },
+          "x-go-name": "Data"
+        },
+        "total": {
+          "description": "The total number of data | 数据总数",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "Total"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/api/internal/types"
+    },
+    "PropertyPageReq": {
+      "type": "object",
+      "required": [
+        "page",
+        "pageSize"
+      ],
+      "properties": {
+        "createdAt": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "x-go-name": "CreatedAt"
+        },
+        "name": {
+          "description": "Name",
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "page": {
+          "description": "Page number | 第几页",
+          "type": "integer",
+          "format": "uint64",
+          "minimum": 0,
+          "x-go-name": "Page"
+        },
+        "pageSize": {
+          "description": "Page size | 单页数据行数",
+          "type": "integer",
+          "format": "uint64",
+          "maximum": 100000,
+          "x-go-name": "PageSize"
+        },
+        "status": {
+          "description": "Status",
+          "type": "integer",
+          "format": "uint32",
+          "x-go-name": "Status"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/internal/types"
+    },
+    "PropertyResp": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "createdAt": {
+          "description": "Create date | 创建日期",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "CreatedAt"
+        },
+        "id": {
+          "description": "ID",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "Id"
+        },
+        "name": {
+          "description": "Name",
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "remark": {
+          "description": "Remark",
+          "type": "string",
+          "x-go-name": "Remark"
+        },
+        "status": {
+          "description": "Status",
+          "type": "integer",
+          "format": "uint32",
+          "x-go-name": "Status"
+        },
+        "updatedAt": {
+          "description": "Update date | 更新日期",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "UpdatedAt"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/internal/types"
+    },
+    "PropertyUpdateReq": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "description": "ID",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "Id"
+        },
+        "name": {
+          "description": "Name 名称",
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "remark": {
+          "description": "Remark 备注",
+          "type": "string",
+          "x-go-name": "Remark"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/api/internal/types"
+    },
+    "PropertyValueBase": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Name 名称",
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "propertyId": {
+          "description": "PropertyId 属性项的编号",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "PropertyId"
+        },
+        "remark": {
+          "description": "Remark 备注",
+          "type": "string",
+          "x-go-name": "Remark"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/api/internal/types"
+    },
+    "PropertyValueDetailResp": {
+      "type": "object",
+      "properties": {
+        "propertyId": {
+          "description": "PropertyId",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "PropertyId"
+        },
+        "propertyName": {
+          "description": "Name",
+          "type": "string",
+          "x-go-name": "PropertyName"
+        },
+        "valueId": {
+          "description": "Remark",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "ValueId"
+        },
+        "valueName": {
+          "description": "Name",
+          "type": "string",
+          "x-go-name": "ValueName"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/internal/types"
+    },
+    "PropertyValueInfo": {
+      "description": "The response data of property value information | PropertyValue信息",
+      "type": "object",
+      "properties": {
+        "createdAt": {
+          "description": "Create date | 创建日期",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "CreatedAt"
+        },
+        "id": {
+          "description": "ID",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "Id"
+        },
+        "name": {
+          "description": "Name 名称",
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "propertyId": {
+          "description": "PropertyId 属性项的编号",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "PropertyId"
+        },
+        "remark": {
+          "description": "Remark 备注",
+          "type": "string",
+          "x-go-name": "Remark"
+        },
+        "status": {
+          "description": "Status 状态",
+          "type": "integer",
+          "format": "uint32",
+          "x-go-name": "Status"
+        },
+        "updatedAt": {
+          "description": "Update date | 更新日期",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "UpdatedAt"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/api/internal/types"
+    },
+    "PropertyValueListResp": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "Data | 数据",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PropertyValueInfo"
+          },
+          "x-go-name": "Data"
+        },
+        "total": {
+          "description": "The total number of data | 数据总数",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "Total"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/internal/types"
+    },
+    "PropertyValuePageReq": {
+      "type": "object",
+      "required": [
+        "page",
+        "pageSize"
+      ],
+      "properties": {
+        "name": {
+          "description": "Name 名称",
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "page": {
+          "description": "Page number | 第几页",
+          "type": "integer",
+          "format": "uint64",
+          "minimum": 0,
+          "x-go-name": "Page"
+        },
+        "pageSize": {
+          "description": "Page size | 单页数据行数",
+          "type": "integer",
+          "format": "uint64",
+          "maximum": 100000,
+          "x-go-name": "PageSize"
+        },
+        "propertyId": {
+          "description": "PropertyId 属性的编号",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "PropertyId"
+        },
+        "status": {
+          "description": "Status 状态",
+          "type": "integer",
+          "format": "uint32",
+          "x-go-name": "Status"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/api/internal/types"
+    },
+    "PropertyValueResp": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "createTime": {
+          "description": "创建时间",
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "uint64"
+          },
+          "x-go-name": "CreateTime"
+        },
+        "id": {
+          "description": "ID",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "Id"
+        },
+        "name": {
+          "description": "Name 名称",
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "propertyId": {
+          "description": "PropertyId 属性项的编号",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "PropertyId"
+        },
+        "remark": {
+          "description": "Remark 备注",
+          "type": "string",
+          "x-go-name": "Remark"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/api/internal/types"
+    },
+    "PropertyValueUpdateReq": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "description": "ID",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "Id"
+        },
+        "name": {
+          "description": "Name",
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "propertyId": {
+          "description": "PropertyId",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "PropertyId"
+        },
+        "remark": {
+          "description": "Remark",
+          "type": "string",
+          "x-go-name": "Remark"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/internal/types"
+    },
+    "SkuBase": {
+      "type": "object",
+      "properties": {
+        "barCode": {
+          "description": "BarCode 条形码",
+          "type": "string",
+          "x-go-name": "BarCode"
+        },
+        "costPrice": {
+          "description": "CostPrice 成本价",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "CostPrice"
+        },
+        "marketPrice": {
+          "description": "MarketPrice 市场价",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "MarketPrice"
+        },
+        "picUrl": {
+          "description": "PicUrl 图片地址",
+          "type": "string",
+          "x-go-name": "PicUrl"
+        },
+        "price": {
+          "description": "Price 销售价格，单位：分",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "Price"
+        },
+        "properties": {
+          "description": "Properties 属性数组",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SkuProperty"
+          },
+          "x-go-name": "Properties"
+        },
+        "stock": {
+          "description": "Stock 库存",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "Stock"
+        },
+        "volume": {
+          "description": "Volume 商品体积,单位：m^3 平米",
+          "type": "number",
+          "format": "double",
+          "x-go-name": "Volume"
+        },
+        "weight": {
+          "description": "Weight 商品重量,单位：kg 千克",
+          "type": "number",
+          "format": "double",
+          "x-go-name": "Weight"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/api/internal/types"
+    },
+    "SkuInfo": {
+      "type": "object",
+      "properties": {
+        "barCode": {
+          "description": "BarCode",
+          "type": "string",
+          "x-go-name": "BarCode"
+        },
+        "costPrice": {
+          "description": "CostPrice",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "CostPrice"
+        },
+        "marketPrice": {
+          "description": "MarketPrice",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "MarketPrice"
+        },
+        "picUrl": {
+          "description": "PicUrl",
+          "type": "string",
+          "x-go-name": "PicUrl"
+        },
+        "price": {
+          "description": "Price",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "Price"
+        },
+        "properties": {
+          "description": "Properties",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SkuProperty"
+          },
+          "x-go-name": "Properties"
+        },
+        "stock": {
+          "description": "Stock",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "Stock"
+        },
+        "volume": {
+          "description": "Volume",
+          "type": "number",
+          "format": "double",
+          "x-go-name": "Volume"
+        },
+        "weight": {
+          "description": "Weight",
+          "type": "number",
+          "format": "double",
+          "x-go-name": "Weight"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/internal/types"
+    },
+    "SkuProperty": {
+      "type": "object",
+      "properties": {
+        "propertyId": {
+          "description": "PropertyId",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "PropertyId"
+        },
+        "propertyName": {
+          "description": "PropertyName",
+          "type": "string",
+          "x-go-name": "PropertyName"
+        },
+        "valueId": {
+          "description": "ValueId",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "ValueId"
+        },
+        "valueName": {
+          "description": "ValueName",
+          "type": "string",
+          "x-go-name": "ValueName"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/internal/types"
+    },
+    "SpuBase": {
+      "type": "object",
+      "properties": {
+        "brandId": {
+          "description": "BrandId 商品品牌编号",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "BrandId"
+        },
+        "categoryId": {
+          "description": "CategoryId 商品分类编号",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "CategoryId"
+        },
+        "description": {
+          "description": "Description 商品详情",
+          "type": "string",
+          "x-go-name": "Description"
+        },
+        "introduction": {
+          "description": "Introduction 商品简介",
+          "type": "string",
+          "x-go-name": "Introduction"
+        },
+        "keyword": {
+          "description": "Keyword 关键字",
+          "type": "string",
+          "x-go-name": "Keyword"
+        },
+        "name": {
+          "description": "Name 商品名称",
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "picUrl": {
+          "description": "PicUrl 商品封面图",
+          "type": "string",
+          "x-go-name": "PicUrl"
+        },
+        "sliderPicUrls": {
+          "description": "SliderPicUrls 商品轮播图",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "SliderPicUrls"
+        },
+        "sort": {
+          "description": "Sort 排序字段",
+          "type": "integer",
+          "format": "uint32",
+          "x-go-name": "Sort"
+        },
+        "specType": {
+          "description": "SpecType 规格类型",
+          "type": "boolean",
+          "x-go-name": "SpecType"
+        },
+        "unit": {
+          "description": "Unit 单位",
+          "type": "integer",
+          "format": "uint32",
+          "x-go-name": "Unit"
+        },
+        "videoUrl": {
+          "description": "VideoUrl 商品视频",
+          "type": "string",
+          "x-go-name": "VideoUrl"
+        },
+        "virtualSalesCount": {
+          "description": "VirtualSalesCount 虚拟销量",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "VirtualSalesCount"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/api/internal/types"
+    },
+    "SpuCountResp": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "x-go-name": "Data"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/api/internal/types"
+    },
+    "SpuCreateReq": {
+      "type": "object",
+      "properties": {
+        "brandId": {
+          "description": "BrandId 商品品牌编号",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "BrandId"
+        },
+        "categoryId": {
+          "description": "CategoryId 商品分类编号",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "CategoryId"
+        },
+        "description": {
+          "description": "Description 商品详情",
+          "type": "string",
+          "x-go-name": "Description"
+        },
+        "introduction": {
+          "description": "Introduction 商品简介",
+          "type": "string",
+          "x-go-name": "Introduction"
+        },
+        "keyword": {
+          "description": "Keyword 关键字",
+          "type": "string",
+          "x-go-name": "Keyword"
+        },
+        "name": {
+          "description": "Name 商品名称",
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "picUrl": {
+          "description": "PicUrl 商品封面图",
+          "type": "string",
+          "x-go-name": "PicUrl"
+        },
+        "skus": {
+          "description": "skus",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SkuBase"
+          },
+          "x-go-name": "Skus"
+        },
+        "sliderPicUrls": {
+          "description": "SliderPicUrls 商品轮播图",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "SliderPicUrls"
+        },
+        "sort": {
+          "description": "Sort 排序字段",
+          "type": "integer",
+          "format": "uint32",
+          "x-go-name": "Sort"
+        },
+        "specType": {
+          "description": "SpecType 规格类型",
+          "type": "boolean",
+          "x-go-name": "SpecType"
+        },
+        "unit": {
+          "description": "Unit 单位",
+          "type": "integer",
+          "format": "uint32",
+          "x-go-name": "Unit"
+        },
+        "videoUrl": {
+          "description": "VideoUrl 商品视频",
+          "type": "string",
+          "x-go-name": "VideoUrl"
+        },
+        "virtualSalesCount": {
+          "description": "VirtualSalesCount 虚拟销量",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "VirtualSalesCount"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/api/internal/types"
+    },
+    "SpuDetailResp": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "barCode": {
+          "description": "BarCode",
+          "type": "string",
+          "x-go-name": "BarCode"
+        },
+        "brandId": {
+          "description": "BrandId",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "BrandId"
+        },
+        "browseCount": {
+          "description": "BrowseCount",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "BrowseCount"
+        },
+        "categoryId": {
+          "description": "CategoryId",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "CategoryId"
+        },
+        "costPrice": {
+          "description": "CostPrice",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "CostPrice"
+        },
+        "createdAt": {
+          "description": "Create date | 创建日期",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "CreatedAt"
+        },
+        "description": {
+          "description": "Description",
+          "type": "string",
+          "x-go-name": "Description"
+        },
+        "id": {
+          "description": "ID",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "Id"
+        },
+        "introduction": {
+          "description": "Introduction",
+          "type": "string",
+          "x-go-name": "Introduction"
+        },
+        "keyword": {
+          "description": "Keyword",
+          "type": "string",
+          "x-go-name": "Keyword"
+        },
+        "marketPrice": {
+          "description": "MarketPrice",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "MarketPrice"
+        },
+        "name": {
+          "description": "Name",
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "picUrl": {
+          "description": "PicUrl",
+          "type": "string",
+          "x-go-name": "PicUrl"
+        },
+        "price": {
+          "description": "Price",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "Price"
+        },
+        "salesCount": {
+          "description": "SalesCount",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "SalesCount"
+        },
+        "skus": {
+          "description": "SalesCount\nSalesCount int32 `json:\"salesCount\"`\nBrowseCount\nBrowseCount int32 `json:\"browseCount\"`\nStatus\nStatus *uint32 `json:\"status,optional\"`\nskus",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SkuInfo"
+          },
+          "x-go-name": "Skus"
+        },
+        "sliderPicUrls": {
+          "description": "SliderPicUrls",
+          "type": "string",
+          "x-go-name": "SliderPicUrls"
+        },
+        "sort": {
+          "description": "Sort",
+          "type": "integer",
+          "format": "uint32",
+          "x-go-name": "Sort"
+        },
+        "specType": {
+          "description": "SpecType",
+          "type": "boolean",
+          "x-go-name": "SpecType"
+        },
+        "status": {
+          "description": "Status",
+          "type": "integer",
+          "format": "uint32",
+          "x-go-name": "Status"
+        },
+        "stock": {
+          "description": "Stock",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "Stock"
+        },
+        "unit": {
+          "description": "Unit",
+          "type": "integer",
+          "format": "uint32",
+          "x-go-name": "Unit"
+        },
+        "updatedAt": {
+          "description": "Update date | 更新日期",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "UpdatedAt"
+        },
+        "videoUrl": {
+          "description": "VideoUrl",
+          "type": "string",
+          "x-go-name": "VideoUrl"
+        },
+        "virtualSalesCount": {
+          "description": "VirtualSalesCount",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "VirtualSalesCount"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/api/internal/types"
+    },
+    "SpuInfo": {
+      "description": "The response data of spu information | Spu信息",
+      "type": "object",
+      "properties": {
+        "barCode": {
+          "description": "BarCode",
+          "type": "string",
+          "x-go-name": "BarCode"
+        },
+        "brandId": {
+          "description": "BrandId",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "BrandId"
+        },
+        "browseCount": {
+          "description": "BrowseCount",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "BrowseCount"
+        },
+        "categoryId": {
+          "description": "CategoryId",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "CategoryId"
+        },
+        "costPrice": {
+          "description": "CostPrice",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "CostPrice"
+        },
+        "createdAt": {
+          "description": "Create date | 创建日期",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "CreatedAt"
+        },
+        "description": {
+          "description": "Description",
+          "type": "string",
+          "x-go-name": "Description"
+        },
+        "id": {
+          "description": "ID",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "Id"
+        },
+        "introduction": {
+          "description": "Introduction",
+          "type": "string",
+          "x-go-name": "Introduction"
+        },
+        "keyword": {
+          "description": "Keyword",
+          "type": "string",
+          "x-go-name": "Keyword"
+        },
+        "marketPrice": {
+          "description": "MarketPrice",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "MarketPrice"
+        },
+        "name": {
+          "description": "Name",
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "picUrl": {
+          "description": "PicUrl",
+          "type": "string",
+          "x-go-name": "PicUrl"
+        },
+        "price": {
+          "description": "Price",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "Price"
+        },
+        "salesCount": {
+          "description": "SalesCount",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "SalesCount"
+        },
+        "sliderPicUrls": {
+          "description": "SliderPicUrls",
+          "type": "string",
+          "x-go-name": "SliderPicUrls"
+        },
+        "sort": {
+          "description": "Sort",
+          "type": "integer",
+          "format": "uint32",
+          "x-go-name": "Sort"
+        },
+        "specType": {
+          "description": "SpecType",
+          "type": "boolean",
+          "x-go-name": "SpecType"
+        },
+        "status": {
+          "description": "Status",
+          "type": "integer",
+          "format": "uint32",
+          "x-go-name": "Status"
+        },
+        "stock": {
+          "description": "Stock",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "Stock"
+        },
+        "unit": {
+          "description": "Unit",
+          "type": "integer",
+          "format": "uint32",
+          "x-go-name": "Unit"
+        },
+        "updatedAt": {
+          "description": "Update date | 更新日期",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "UpdatedAt"
+        },
+        "videoUrl": {
+          "description": "VideoUrl",
+          "type": "string",
+          "x-go-name": "VideoUrl"
+        },
+        "virtualSalesCount": {
+          "description": "VirtualSalesCount",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "VirtualSalesCount"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/api/internal/types"
+    },
+    "SpuListResp": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "Data | 数据",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SpuDetailResp"
+          },
+          "x-go-name": "Data"
+        },
+        "total": {
+          "description": "The total number of data | 数据总数",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "Total"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/api/internal/types"
+    },
+    "SpuPageReq": {
+      "type": "object",
+      "required": [
+        "page",
+        "pageSize"
+      ],
+      "properties": {
+        "categoryId": {
+          "description": "CategoryId 商品分类编号",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "CategoryId"
+        },
+        "createTime": {
+          "description": "CreateTime 创建时间",
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "uint64"
+          },
+          "x-go-name": "CreateTime"
+        },
+        "name": {
+          "description": "Name 商品名称",
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "page": {
+          "description": "Page number | 第几页",
+          "type": "integer",
+          "format": "uint64",
+          "minimum": 0,
+          "x-go-name": "Page"
+        },
+        "pageSize": {
+          "description": "Page size | 单页数据行数",
+          "type": "integer",
+          "format": "uint64",
+          "maximum": 100000,
+          "x-go-name": "PageSize"
+        },
+        "tabType": {
+          "description": "TabType 前端请求的tab类型",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "TabType"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/api/internal/types"
+    },
+    "SpuPageResp": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "Data | 数据",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SpuResp"
+          },
+          "x-go-name": "Data"
+        },
+        "total": {
+          "description": "The total number of data | 数据总数",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "Total"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/api/internal/types"
+    },
+    "SpuResp": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "barCode": {
+          "description": "BarCode",
+          "type": "string",
+          "x-go-name": "BarCode"
+        },
+        "brandId": {
+          "description": "BrandId",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "BrandId"
+        },
+        "browseCount": {
+          "description": "BrowseCount",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "BrowseCount"
+        },
+        "categoryId": {
+          "description": "CategoryId",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "CategoryId"
+        },
+        "costPrice": {
+          "description": "CostPrice",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "CostPrice"
+        },
+        "createTime": {
+          "description": "CreateTime",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "CreateTime"
+        },
+        "createdAt": {
+          "description": "Create date | 创建日期",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "CreatedAt"
+        },
+        "description": {
+          "description": "Description",
+          "type": "string",
+          "x-go-name": "Description"
+        },
+        "id": {
+          "description": "ID",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "Id"
+        },
+        "introduction": {
+          "description": "Introduction",
+          "type": "string",
+          "x-go-name": "Introduction"
+        },
+        "keyword": {
+          "description": "Keyword",
+          "type": "string",
+          "x-go-name": "Keyword"
+        },
+        "marketPrice": {
+          "description": "MarketPrice",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "MarketPrice"
+        },
+        "name": {
+          "description": "Name",
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "picUrl": {
+          "description": "PicUrl",
+          "type": "string",
+          "x-go-name": "PicUrl"
+        },
+        "price": {
+          "description": "Price",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "Price"
+        },
+        "salesCount": {
+          "description": "SalesCount",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "SalesCount"
+        },
+        "sliderPicUrls": {
+          "description": "SliderPicUrls",
+          "type": "string",
+          "x-go-name": "SliderPicUrls"
+        },
+        "sort": {
+          "description": "Sort",
+          "type": "integer",
+          "format": "uint32",
+          "x-go-name": "Sort"
+        },
+        "specType": {
+          "description": "SpecType",
+          "type": "boolean",
+          "x-go-name": "SpecType"
+        },
+        "status": {
+          "description": "Status",
+          "type": "integer",
+          "format": "uint32",
+          "x-go-name": "Status"
+        },
+        "stock": {
+          "description": "Stock",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "Stock"
+        },
+        "unit": {
+          "description": "Unit",
+          "type": "integer",
+          "format": "uint32",
+          "x-go-name": "Unit"
+        },
+        "updatedAt": {
+          "description": "Update date | 更新日期",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "UpdatedAt"
+        },
+        "videoUrl": {
+          "description": "VideoUrl",
+          "type": "string",
+          "x-go-name": "VideoUrl"
+        },
+        "virtualSalesCount": {
+          "description": "VirtualSalesCount",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "VirtualSalesCount"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/internal/types"
+    },
+    "SpuSimpleListResp": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "Data | 数据",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SpuSimpleResp"
+          },
+          "x-go-name": "Data"
+        },
+        "total": {
+          "description": "The total number of data | 数据总数",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "Total"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/api/internal/types"
+    },
+    "SpuSimpleResp": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "browseCount": {
+          "description": "BrowseCount 商品浏览量",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "BrowseCount"
+        },
+        "costPrice": {
+          "description": "CostPrice 商品成本价，单位使用：分",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "CostPrice"
+        },
+        "id": {
+          "description": "ID",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "Id"
+        },
+        "marketPrice": {
+          "description": "MarketPrice 商品市场价，单位使用：分",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "MarketPrice"
+        },
+        "name": {
+          "description": "Name 商品名称",
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "price": {
+          "description": "Price 商品价格，单位使用：分",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "Price"
+        },
+        "salesCount": {
+          "description": "SalesCount 商品销量",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "SalesCount"
+        },
+        "stock": {
+          "description": "Stock 商品库存",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "Stock"
+        },
+        "virtualSalesCount": {
+          "description": "VirtualSalesCount 商品虚拟销量",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "VirtualSalesCount"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/api/internal/types"
+    },
+    "SpuUpdateReq": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "brandId": {
+          "description": "BrandId",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "BrandId"
+        },
+        "browseCount": {
+          "description": "BrowseCount",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "BrowseCount"
+        },
+        "categoryId": {
+          "description": "CategoryId",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "CategoryId"
+        },
+        "description": {
+          "description": "Description",
+          "type": "string",
+          "x-go-name": "Description"
+        },
+        "id": {
+          "description": "ID",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "Id"
+        },
+        "introduction": {
+          "description": "Introduction",
+          "type": "string",
+          "x-go-name": "Introduction"
+        },
+        "keyword": {
+          "description": "Keyword",
+          "type": "string",
+          "x-go-name": "Keyword"
+        },
+        "name": {
+          "description": "Name",
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "picUrl": {
+          "description": "PicUrl",
+          "type": "string",
+          "x-go-name": "PicUrl"
+        },
+        "salesCount": {
+          "description": "SalesCount",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "SalesCount"
+        },
+        "skus": {
+          "description": "skus",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SkuBase"
+          },
+          "x-go-name": "Skus"
+        },
+        "sliderPicUrls": {
+          "description": "SliderPicUrls",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "SliderPicUrls"
+        },
+        "sort": {
+          "description": "Sort",
+          "type": "integer",
+          "format": "uint32",
+          "x-go-name": "Sort"
+        },
+        "specType": {
+          "description": "SpecType",
+          "type": "boolean",
+          "x-go-name": "SpecType"
+        },
+        "status": {
+          "description": "Status",
+          "type": "integer",
+          "format": "uint32",
+          "x-go-name": "Status"
+        },
+        "unit": {
+          "description": "Unit",
+          "type": "integer",
+          "format": "uint32",
+          "x-go-name": "Unit"
+        },
+        "videoUrl": {
+          "description": "VideoUrl",
+          "type": "string",
+          "x-go-name": "VideoUrl"
+        },
+        "virtualSalesCount": {
+          "description": "VirtualSalesCount",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "VirtualSalesCount"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/internal/types"
+    },
+    "SpuUpdateStatusReq": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "description": "ID",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "Id"
+        },
+        "status": {
+          "description": "Status",
+          "type": "integer",
+          "format": "uint32",
+          "x-go-name": "Status"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/internal/types"
+    },
+    "UUIDReq": {
+      "description": "Basic UUID request | 基础UUID参数请求",
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "description": "ID",
+          "type": "string",
+          "maxLength": 36,
+          "x-go-name": "Id"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/api/internal/types"
+    },
+    "UUIDsReq": {
+      "description": "Basic UUID array request | 基础UUID数组参数请求",
+      "type": "object",
+      "required": [
+        "ids"
+      ],
+      "properties": {
+        "ids": {
+          "description": "Ids",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "Ids"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/internal/types"
+    },
+    "Value": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "Id"
+        },
+        "name": {
+          "description": "Name",
+          "type": "string",
+          "x-go-name": "Name"
+        }
+      },
+      "x-go-package": "github.com/agui-coder/simple-admin-product-api/api/internal/types"
+    }
+  },
+  "securityDefinitions": {
+    "Token": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "security": [
+    {
+      "Token": [
+        "[]"
+      ]
+    }
+  ]
+}

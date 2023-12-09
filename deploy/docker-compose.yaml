@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  simple-admin-api:
+    image: registry.cn-hangzhou.aliyuncs.com/rabbit1688/product-api:latest
+    container_name: simple-admin-api
+    restart: always
+    ports:
+      - "10026:10026"
+
+networks:
+  default:
+    name: promotion_promotion
+    external: true

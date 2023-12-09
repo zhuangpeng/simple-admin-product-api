@@ -9,6 +9,8 @@ SERVICE_LOWER=product
 SERVICE_SNAKE=product
 # Service name in snake format | 项目名称短杠格式
 SERVICE_DASH=product
+# The suffix after build or compile | 构建后缀
+PROJECT_BUILD_SUFFIX=api
 
 # The project version, if you don't use git, you should set it manually | 项目版本，如果不使用git请手动设置
 VERSION=$(shell git describe --tags --always)
@@ -53,22 +55,27 @@ tools: # Install the necessary tools | 安装必要的工具
 	$(GO) install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
 	$(GO) install github.com/go-swagger/go-swagger/cmd/swagger@latest
 
-.PHONY: docker
+PHONY: docker
 docker: # Build the docker image | 构建 docker 镜像
-	docker build -f Dockerfile-api -t ${DOCKER_USERNAME}/$(SERVICE_DASH)-api:${VERSION} .
-	docker build -f Dockerfile-rpc -t ${DOCKER_USERNAME}/$(SERVICE_DASH)-rpc:${VERSION} .
+	docker build -f Dockerfile -t ${REPO}/${NAMESPACE}/$(SERVICE_DASH)-${PROJECT_BUILD_SUFFIX}:${VERSION} .
 	@echo "Build docker successfully"
 
 .PHONY: publish-docker
 publish-docker: # Publish docker image | 发布 docker 镜像
-	echo "${DOCKER_PASSWORD}" | docker login --username ${DOCKER_USERNAME} --password-stdin https://${REPO}
-	docker push ${DOCKER_USERNAME}/$(SERVICE_DASH)-rpc:${VERSION}
-	docker push ${DOCKER_USERNAME}/$(SERVICE_DASH)-api:${VERSION}
+	echo "${DOCKER_PASSWORD}" | docker login --username ${DOCKER_USERNAME} --password-stdin ${REPO}
+	docker push ${REPO}/${NAMESPACE}/$(SERVICE_DASH)-rpc:${VERSION}
+	docker tag ${REPO}/${NAMESPACE}/$(SERVICE_DASH)-rpc:${VERSION} ${REPO}/${NAMESPACE}/$(SERVICE_DASH)-${PROJECT_BUILD_SUFFIX}:latest 
 	@echo "Publish docker successfully"
+
+.PHONY: docker-run
+docker-run: # Publish docker image | 发布 docker 镜像
+	docker rm -f $(SERVICE_DASH)-${PROJECT_BUILD_SUFFIX}
+	docker-compose -f deploy/docker-compose.yaml up -d
+	@echo "docker run successfully"
 
 .PHONY: gen-api
 gen-api: # Generate API files | 生成 API 的代码
-	goctls api go --api ./api/desc/all.api --dir ./api --trans_err=true --style=$(PROJECT_STYLE)
+	goctls api go --api ./desc/all.api --dir ./api --trans_err=true --style=$(PROJECT_STYLE)
 	swagger generate spec --output=./$(SERVICE_STYLE).$(SWAGGER_TYPE) --scan-models
 	@echo "Generate API files successfully"
 
@@ -101,8 +108,7 @@ build-mac: # Build project for MacOS | 构建MacOS下的可执行文件
 
 .PHONY: build-linux
 build-linux: # Build project for Linux | 构建Linux下的可执行文件
-	env CGO_ENABLED=0 GOOS=linux GOARCH=$(GOARCH) go build -ldflags "$(LDFLAGS)" -trimpath -o $(SERVICE_STYLE)_rpc ./rpc/$(SERVICE_STYLE).go
-	env CGO_ENABLED=0 GOOS=linux GOARCH=$(GOARCH) go build -ldflags "$(LDFLAGS)" -trimpath -o $(SERVICE_STYLE)_api ./api/$(SERVICE_STYLE).go
+	env CGO_ENABLED=0 GOOS=linux GOARCH=$(GOARCH) go build -ldflags "$(LDFLAGS)" -trimpath -o $(SERVICE_STYLE)_api $(SERVICE_STYLE).go
 	@echo "Build project for Linux successfully"
 
 .PHONY: gen-swagger

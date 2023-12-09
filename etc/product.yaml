@@ -1,6 +1,6 @@
 Name: Product.api
 Host: 0.0.0.0
-Port: 9105
+Port: 10026
 Timeout: 30000
 
 Auth:
@@ -15,30 +15,30 @@ Log:
   Level: info
   Encoding: plain
 
-Prometheus:
-  Host: 0.0.0.0
-  Port: 4000
-  Path: /metrics
+# Prometheus:
+#   Host: 0.0.0.0
+#   Port: 4000
+#   Path: /metrics
 
 ProductRpc:
   Endpoints:
-    - 127.0.0.1:9005
+    - 127.0.0.1:10027
   NonBlock: true
 
 DatabaseConf:
-  Type: mysql
-  Host: 127.0.0.1
-  Port: 3306
+  Type: postgres
+  Host: pgsql
+  Port: 5432
   DBName: simple_mall
-  Username: root
-  Password: root
+  Username: simple_admin
+  Password: pg123456
   MaxOpenConn: 100
   SSLMode: disable # disable or require
   CacheTime: 5
-  MysqlConfig: "&charset=utf8&loc=Asia%2fShanghai" # Mysql的额外配置
+  # MysqlConfig: "&charset=utf8&loc=Asia%2fShanghai" # Mysql的额外配置
 
 RedisConf:
-  Host: 127.0.0.1:6379
+  Host: redis:6379
   Type: node
 
 CasbinConf:
